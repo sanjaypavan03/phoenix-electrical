@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phoenix Electrical Insulating Material Co. Pvt. Ltd.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-deep:   #1B2B4B;
+    --navy:        #243655;
+    --navy-mid:    #2E4470;
+    --navy-light:  #3A5488;
+    --navy-soft:   #4B6BA0;
+    --slate:       #D0D9EC;
+    --slate-light: #E8EDF7;
+    --page-bg:     #EEF1F8;
+    --amber:       #E8940A;
+    --amber-light: #F5AE34;
+    --amber-pale:  #FBE9C3;
+    --white:       #FAFBFD;
+    --text-dark:   #1B2B4B;
+    --text-mid:    #3A5070;
+    --text-soft:   #6B82A8;
+    --border:      #C4CFDF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--page-bg);
+    color: var(--text-dark);
+    font-family: 'Lora', Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(36,54,85,0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--navy-deep);
+    border-bottom: 3px solid var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    height: 66px;
+    box-shadow: 0 4px 24px rgba(27,43,75,0.25);
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.45rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--amber); }
+
+  .nav-links { display: flex; gap: 0; list-style: none; }
+  .nav-links > li { position: relative; }
+
+  .nav-links > li > a {
+    display: block;
+    padding: 0 1.1rem;
+    height: 66px;
+    line-height: 66px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--slate);
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-links > li > a:hover,
+  .nav-links > li > a.active { color: var(--amber); background: rgba(255,255,255,0.04); }
+
+  .nav-links > li:hover .dropdown { display: block; }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 66px; left: 0;
+    background: var(--navy);
+    border: 1px solid var(--navy-light);
+    border-top: 2px solid var(--amber);
+    min-width: 230px;
+    z-index: 200;
+    box-shadow: 0 8px 30px rgba(27,43,75,0.3);
+  }
+
+  .dropdown a {
+    display: block;
+    padding: 0.7rem 1.4rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--slate);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: all 0.15s;
+  }
+
+  .dropdown a:hover {
+    background: var(--navy-mid);
+    color: var(--amber-light);
+    padding-left: 1.9rem;
+  }
+
+  /* HERO */
+  #home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 66px;
+    background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-mid) 60%, var(--navy) 100%);
+  }
+
+  .hero-geo {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 20%; right: 10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(232,148,10,0.13) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 2px;
+    background: var(--amber);
+  }
+
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3.2rem, 6vw, 5.8rem);
+    line-height: 0.92;
+    text-transform: uppercase;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    margin-bottom: 1.6rem;
+  }
+
+  h1 .highlight { color: var(--amber); display: block; }
+
+  .hero-sub {
+    font-size: 0.98rem;
+    line-height: 1.85;
+    color: var(--slate);
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--amber);
+    color: var(--navy-deep);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.9rem 2rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--amber-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232,148,10,0.35);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: transparent;
+    color: var(--slate);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.9rem 2rem;
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: all 0.2s;
+    margin-left: 0.75rem;
+  }
+
+  .btn-secondary:hover { border-color: var(--amber); color: var(--amber); }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .stat-block {
+    background: rgba(255,255,255,0.05);
+    padding: 2rem 1.5rem;
+    transition: background 0.2s;
+    border-bottom: 3px solid transparent;
+  }
+
+  .stat-block:hover { background: rgba(255,255,255,0.09); border-bottom-color: var(--amber); }
+
+  .stat-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2.6rem;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+
+  .stat-number span { color: var(--amber); font-size: 1.6rem; }
+
+  .stat-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--slate);
+    opacity: 0.8;
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 0; position: relative; z-index: 1; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+
+  .section-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.26em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 24px; height: 2px;
+    background: var(--amber);
+    display: inline-block;
+  }
+
+  h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-transform: uppercase;
+    color: var(--navy-deep);
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    text-transform: uppercase;
+    color: var(--navy-deep);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .divider { width: 100%; height: 1px; background: var(--border); position: relative; z-index: 1; }
+
+  /* ABOUT */
+  #about { background: var(--white); }
+
+  .about-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 4rem; align-items: start; }
+  .about-body { font-size: 0.97rem; line-height: 1.85; color: var(--text-mid); }
+  .about-body p { margin-bottom: 1.25rem; }
+
+  .about-card {
+    background: var(--slate-light);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--amber);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-card h3 { color: var(--navy-mid); }
+  .about-card p { font-size: 0.9rem; line-height: 1.75; color: var(--text-mid); margin-bottom: 0.5rem; }
+
+  /* PRODUCTS */
+  #products { background: var(--page-bg); }
+  .products-intro { font-size: 0.97rem; line-height: 1.8; color: var(--text-mid); max-width: 700px; margin-bottom: 3rem; }
+
+  .products-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem; }
+
+  .product-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--navy-mid);
+    padding: 2.5rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .product-card:hover { box-shadow: 0 8px 32px rgba(27,43,75,0.12); transform: translateY(-3px); }
+  .product-card:nth-child(2) { border-top-color: var(--amber); }
+
+  .product-tag {
+    display: inline-block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.63rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--navy-mid);
+    background: var(--slate-light);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.65rem;
+    margin-bottom: 1rem;
+  }
+
+  .product-card:nth-child(2) .product-tag { color: var(--amber); background: var(--amber-pale); border-color: var(--amber-light); }
+
+  .product-card ul { list-style: none; padding: 0; margin-top: 0.75rem; }
+  .product-card ul li {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    padding: 0.38rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    border-bottom: 1px solid var(--slate-light);
+  }
+  .product-card ul li::before { content: '▸'; color: var(--amber); font-size: 0.6rem; }
+  .product-card ul li:last-child { border-bottom: none; }
+
+  .highlights-bar { background: var(--navy-deep); padding: 2.5rem; border-left: 5px solid var(--amber); }
+  .highlights-bar h3 { color: var(--white); margin-bottom: 1.2rem; }
+
+  .highlights-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem 2rem; list-style: none; padding: 0; }
+  .highlights-list li {
+    font-size: 0.84rem;
+    color: var(--slate);
+    padding: 0.22rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .highlights-list li::before { content: '✓'; color: var(--amber); flex-shrink: 0; font-size: 0.75rem; margin-top: 0.1rem; }
+
+  .customer-note {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.88rem;
+    color: var(--slate);
+    font-style: italic;
+  }
+
+  /* PROCESS */
+  #process { background: var(--white); }
+  .process-intro { font-size: 0.97rem; line-height: 1.8; color: var(--text-mid); max-width: 700px; margin-bottom: 3rem; }
+
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+
+  .step {
+    background: var(--slate-light);
+    border: 1px solid var(--border);
+    border-bottom: 4px solid var(--navy-mid);
+    padding: 2rem 1.5rem;
+    transition: all 0.2s;
+  }
+
+  .step:hover { background: var(--white); border-bottom-color: var(--amber); box-shadow: 0 6px 24px rgba(27,43,75,0.1); transform: translateY(-2px); }
+
+  .step-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 3rem; color: rgba(27,43,75,0.1); line-height: 1; margin-bottom: 0.4rem; }
+  .step-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy-mid); margin-bottom: 0.65rem; }
+  .step p { font-size: 0.83rem; color: var(--text-soft); line-height: 1.6; }
+
+  .process-overview { background: var(--page-bg); border: 1px solid var(--border); border-left: 5px solid var(--navy-mid); padding: 2.5rem; }
+  .process-overview h3 { color: var(--navy-deep); margin-bottom: 1rem; }
+  .process-overview p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.85; }
+
+  .process-sub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
+
+  .sub-process { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--amber); padding: 1.5rem; }
+  .sub-process h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy-mid); margin-bottom: 0.5rem; }
+  .sub-process p { font-size: 0.82rem; color: var(--text-soft); line-height: 1.6; }
+
+  /* VISION */
+  #vision { background: var(--navy-deep); }
+  #vision h2 { color: var(--white); }
+  #vision .section-label { color: var(--amber-light); }
+  #vision .section-label::before { background: var(--amber-light); }
+
+  .vision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+
+  .vision-block { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-top: 3px solid var(--amber); padding: 2rem; }
+  .vision-block h3 { color: var(--amber-light); margin-bottom: 1rem; font-size: 1.2rem; }
+  .vision-block .quote { font-style: italic; font-size: 1.05rem; color: var(--white); line-height: 1.75; }
+  .vision-block p { font-size: 0.92rem; color: var(--slate); line-height: 1.75; }
+  .vision-block ul { list-style: none; padding: 0; margin-top: 0.75rem; }
+  .vision-block ul li { font-size: 0.88rem; color: var(--slate); padding: 0.55rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; gap: 0.75rem; align-items: flex-start; line-height: 1.5; }
+  .vision-block ul li::before { content: '◆'; color: var(--amber); font-size: 0.55rem; margin-top: 0.35rem; flex-shrink: 0; }
+  .vision-block ul li:last-child { border-bottom: none; }
+
+  .quality-statement { grid-column: 1 / -1; background: rgba(232,148,10,0.1); border: 1px solid rgba(232,148,10,0.25); padding: 2.5rem 3rem; position: relative; }
+  .quality-statement::before { content: '"'; position: absolute; top: -1.5rem; left: 2.5rem; font-size: 7rem; font-family: Georgia, serif; color: var(--amber); opacity: 0.25; line-height: 1; }
+  .quality-statement p { font-size: 1.05rem; color: var(--white); line-height: 1.85; font-style: italic; }
+
+  .quality-bullets { display: flex; gap: 2rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; }
+  .quality-bullet { display: flex; align-items: center; gap: 0.5rem; font-family: 'Share Tech Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber-light); }
+  .quality-bullet::before { content: '●'; color: var(--amber); font-size: 0.45rem; }
+
+  /* UPCOMING */
+  #upcoming { background: var(--page-bg); }
+  .upcoming-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 3rem; align-items: center; }
+  .upcoming-body p { font-size: 0.97rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 1.25rem; }
+
+  .upcoming-card { background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--amber); padding: 2rem; box-shadow: 0 4px 20px rgba(27,43,75,0.07); }
+  .upcoming-card h3 { color: var(--navy-mid); margin-bottom: 1rem; }
+  .upcoming-card ul { list-style: none; padding: 0; }
+  .upcoming-card ul li { padding: 0.6rem 0; border-bottom: 1px solid var(--slate-light); font-size: 0.88rem; color: var(--text-mid); display: flex; gap: 0.6rem; align-items: center; }
+  .upcoming-card ul li:last-child { border-bottom: none; }
+  .upcoming-card ul li::before { content: '▸'; color: var(--amber); font-size: 0.65rem; }
+
+  /* CAREERS */
+  #careers { background: var(--white); }
+  .careers-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 4rem; align-items: center; }
+  .careers-body p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 1.25rem; }
+
+  .careers-cta { background: var(--navy-deep); padding: 2.5rem; text-align: center; border-top: 4px solid var(--amber); box-shadow: 0 8px 32px rgba(27,43,75,0.18); }
+  .careers-cta h3 { font-size: 1.5rem; color: var(--white); margin-bottom: 0.75rem; }
+  .careers-cta p { font-size: 0.87rem; color: var(--slate); margin-bottom: 1.5rem; line-height: 1.65; }
+  .careers-cta a.email-link { display: block; font-family: 'Share Tech Mono', monospace; font-size: 0.82rem; color: var(--amber-light); text-decoration: none; border: 1px solid rgba(245,174,52,0.4); padding: 0.75rem 1rem; transition: all 0.2s; word-break: break-all; }
+  .careers-cta a.email-link:hover { background: rgba(245,174,52,0.1); border-color: var(--amber-light); }
+
+  /* CONTACT */
+  #contact { background: var(--page-bg); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+  .contact-info h3 { color: var(--navy-mid); margin-bottom: 1.5rem; }
+
+  .contact-block { margin-bottom: 1.75rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--border); }
+  .contact-block:last-child { border-bottom: none; }
+  .contact-label { font-family: 'Share Tech Mono', monospace; font-size: 0.63rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.45rem; }
+  .contact-value { font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; }
+  .contact-value a { color: var(--navy-mid); text-decoration: none; font-weight: 600; }
+  .contact-value a:hover { color: var(--amber); }
+
+  .contact-form h3 { color: var(--navy-mid); margin-bottom: 1.5rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-family: 'Share Tech Mono', monospace; font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 0.4rem; }
+  .form-group select, .form-group input, .form-group textarea { width: 100%; background: var(--white); border: 1px solid var(--border); border-bottom: 2px solid var(--border); color: var(--text-dark); font-family: 'Lora', serif; font-size: 0.88rem; padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s; -webkit-appearance: none; border-radius: 0; }
+  .form-group select:focus, .form-group input:focus, .form-group textarea:focus { border-color: var(--navy-mid); border-bottom-color: var(--amber); box-shadow: 0 2px 8px rgba(27,43,75,0.08); }
+  .form-group select option { background: var(--white); }
+  .form-group textarea { height: 120px; resize: vertical; }
+
+  /* FOOTER */
+  footer { background: var(--navy-deep); border-top: 3px solid var(--amber); padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-copy { font-family: 'Share Tech Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; color: var(--text-soft); text-transform: uppercase; }
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a { font-family: 'Share Tech Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--amber); }
+
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @keyframes slideIn { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-content > * { animation: slideIn 0.8s ease forwards; opacity: 0; }
+  .hero-content > *:nth-child(1) { animation-delay: 0.15s; }
+  .hero-content > *:nth-child(2) { animation-delay: 0.35s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .hero-content { grid-template-columns: 1fr; gap: 2.5rem; }
+    .container { padding: 0 1.5rem; }
+    .about-grid, .products-grid, .vision-grid, .contact-grid,
+    .careers-grid, .process-steps, .process-sub-grid, .upcoming-grid { grid-template-columns: 1fr; }
+    .highlights-list { grid-template-columns: 1fr 1fr; }
+    footer { flex-direction: column; text-align: center; }
+    .quality-statement { grid-column: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="nav-logo">Phoenix <span>Electrical</span></a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li>
+      <a href="#about">The Company ▾</a>
+      <div class="dropdown">
+        <a href="#vision">Vision</a>
+        <a href="#about">Infrastructure</a>
+        <a href="#vision">Quality Policy</a>
+      </div>
+    </li>
+    <li>
+      <a href="#process">Process ▾</a>
+      <div class="dropdown">
+        <a href="#process">Pultrusion &amp; Pullwinding</a>
+        <a href="#process">Crimping</a>
+        <a href="#process">Rubber Process</a>
+        <a href="#process">Testing</a>
+      </div>
+    </li>
+    <li>
+      <a href="#products">Products ▾</a>
+      <div class="dropdown">
+        <a href="#products">FRP</a>
+        <a href="#products">Insulators</a>
+        <a href="#products">Others</a>
+      </div>
+    </li>
+    <li><a href="#careers">Careers</a></li>
+    <li><a href="#contact">Contacts</a></li>
+  </ul>
+</nav>
+
+<section id="home">
+  <div class="hero-geo"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-eyebrow">Hyderabad, India — Est. 2010</div>
+      <h1>Phoenix<span class="highlight">Electrical</span></h1>
+      <p class="hero-sub">Phoenix Electrical Insulating Material Co Pvt Ltd is a Hyderabad (India) based manufacturer of polymer insulators, FRP, and transformers — established to serve the global demand for composite insulators and Fibre Reinforced Polymer products.</p>
+      <div>
+        <a href="#products" class="btn-primary">Explore Products →</a>
+        <a href="#contact" class="btn-secondary">Contact Us</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-block">
+        <div class="stat-number">IEC<span>61109</span></div>
+        <div class="stat-label">Industry Standard Compliant</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number">3<span>+</span></div>
+        <div class="stat-label">Core Product Lines</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number">HV<span>↑</span></div>
+        <div class="stat-label">High Voltage Solutions</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number">FRP<span>+</span></div>
+        <div class="stat-label">Advanced Materials</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="about">
+  <div class="container">
+    <div class="section-label">The Company</div>
+    <h2>Built for the Power Sector</h2>
+    <div class="about-grid">
+      <div class="about-body fade-up">
+        <p>Power sector is booming. The generation and distribution of electric power through conventional and renewable sources have opened doors to new technologies globally.</p>
+        <p>Efficient and affordable means are necessary to develop infrastructure for power transmission. We, at Phoenix Electrical, take advantage of the situation and market trends that demand quick and robust solutions for voltage transmission.</p>
+        <p>Phoenix Electrical Insulating Material Co Pvt Ltd is a Hyderabad (India) based manufacturer of FRP, polymeric insulators, and transformers. The Company was established with an objective to serve the global demand for Fibre Reinforced Polymer (FRP) products and composite insulators for industrial and domestic applications.</p>
+        <p>We own high-tech equipment to produce FRP products, and rubber process, crimping and testing machines to deliver the products at optimal price, in reasonable time frames.</p>
+      </div>
+      <div class="fade-up">
+        <div class="about-card">
+          <h3>What We Do</h3>
+          <p>Our products speak for us. Delivering high performance at competitive prices, the full range of Phoenix products stand above the competition. Apart from the production of composite insulators for different voltages, Phoenix delivers all essential components required for the production of insulators.</p>
+        </div>
+        <div class="about-card" style="border-left-color: var(--navy-mid);">
+          <h3>How We Do It</h3>
+          <p>Acquiring the best available raw material from global markets and using advanced technologies, Phoenix team delivers a wide range of insulators and reinforced polymers — keeping abreast of the latest developments.</p>
+          <p>Through our specialized products and procedures, we position ourselves much ahead of manufacturing facilities available in India.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="products">
+  <div class="container">
+    <div class="section-label">Products</div>
+    <h2>Full Range. Zero Compromise.</h2>
+    <p class="products-intro">Delivering high performance at competitive prices, the full range of Phoenix products stand above the competition. Apart from the production of composite insulators for different voltages, Phoenix delivers all essential components required for the production of insulators.</p>
+    <div class="products-grid">
+      <div class="product-card fade-up">
+        <div class="product-tag">FRP Products</div>
+        <h3>Fibre Reinforced Polymer</h3>
+        <ul>
+          <li>FRP Rods for insulators</li>
+          <li>Profiles</li>
+          <li>Cable trays</li>
+          <li>Custom designs for industry-specific needs</li>
+        </ul>
+      </div>
+      <div class="product-card fade-up">
+        <div class="product-tag">Insulators &amp; Surge Protectors</div>
+        <h3>Composite Insulators</h3>
+        <ul>
+          <li>Pin insulators</li>
+          <li>Post insulators</li>
+          <li>Suspension insulators</li>
+          <li>Cross arm insulators</li>
+          <li>Station class LAs</li>
+          <li>Distribution class LAs</li>
+        </ul>
+      </div>
+    </div>
+    <div class="highlights-bar fade-up">
+      <h3>Product Highlights</h3>
+      <ul class="highlights-list">
+        <li>Custom-made FRP Products</li>
+        <li>Metal fittings produced and delivered in-house</li>
+        <li>Insulators meet all industry standards including IEC61109</li>
+        <li>Consistency in production</li>
+        <li>Rigorous test procedures</li>
+        <li>Industry specific: Power Sector, Railways, Heavy Engineering Units, Construction Industry</li>
+      </ul>
+      <p class="customer-note">Customer Satisfaction: Our products speak for us. Hence we recommend our customers to take a look at sample products and test them before placing an order.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="process">
+  <div class="container">
+    <div class="section-label">Process</div>
+    <h2>Advanced Manufacturing. Proven Results.</h2>
+    <p class="process-intro">An overview of the insulator production process at Phoenix. Through our specialized products and procedures, we position ourselves much ahead of manufacturing facilities available in India.</p>
+    <div class="process-steps">
+      <div class="step fade-up">
+        <div class="step-num">01</div>
+        <div class="step-title">FRP Manufacturing</div>
+        <p>Using Pultrusion &amp; Pullwinding machines to manufacture high-quality FRP rods. Raw materials sourced from global markets for optimal quality.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">02</div>
+        <div class="step-title">Preparation &amp; Bonding</div>
+        <p>FRP rods are cleaned and bonding agent is applied. After 25–35 minutes, they proceed to the metal fittings crimping process.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">03</div>
+        <div class="step-title">Rubber Processing</div>
+        <p>Crimped FRP rods are placed inside the die and silicone compound is charged over it. After the desired curing time, components are ejected from the die.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">04</div>
+        <div class="step-title">Testing &amp; Dispatch</div>
+        <p>Insulators are tested for visual inspection, crimping strength, and high voltage testing. Packed and kept in storage area for dispatch.</p>
+      </div>
+    </div>
+    <div class="process-overview fade-up">
+      <h3>Process Chart Overview</h3>
+      <p>The basic elements involved are FRP rod, METAL fittings, SILICONE rubber. The basic machines involved are PULTRUSION &amp; PULLWINDING machine for FRP manufacturing, CRIMPING with AE detector machine for METAL fittings crimping, RUBBER processing machine &amp; MOLD for molding.</p>
+      <div class="process-sub-grid">
+        <div class="sub-process">
+          <h4>Pultrusion &amp; Pullwinding</h4>
+          <p>High-tech process for manufacturing strong, consistent FRP rods with precise dimensional tolerances suitable for insulator applications.</p>
+        </div>
+        <div class="sub-process">
+          <h4>Crimping</h4>
+          <p>Metal fittings crimping with Acoustic Emission (AE) detector machine ensures superior mechanical performance and reliability.</p>
+        </div>
+        <div class="sub-process">
+          <h4>Rubber Process</h4>
+          <p>Silicone compound molding ensures excellent weathering resistance, hydrophobicity, and long-term electrical performance.</p>
+        </div>
+        <div class="sub-process">
+          <h4>Testing</h4>
+          <p>Comprehensive quality verification including visual inspection, crimp strength testing, and high-voltage electrical testing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="vision">
+  <div class="container">
+    <div class="section-label">Vision &amp; Quality</div>
+    <h2>Committed to Excellence</h2>
+    <div class="vision-grid">
+      <div class="vision-block fade-up">
+        <h3>Mission</h3>
+        <p class="quote">"To become the company of choice for global customers and clients in Electrical Insulating Material industry"</p>
+      </div>
+      <div class="vision-block fade-up">
+        <h3>Vision 2015</h3>
+        <ul>
+          <li>Explore ideal ways to meet the insulating material requirements, due to increased energy demand and voltage upgrade of existing transmission lines</li>
+          <li>Capture a sizable market share in insulating materials by keeping pace with the latest trends in polymer technology and insulator design</li>
+        </ul>
+      </div>
+      <div class="quality-statement fade-up">
+        <p>"We, the team of Phoenix Electrical are committed to achieve excellence in product standards as per global market requirements. We shall create an environment where each employee contributes to all aspects of our business process and to the upgrade of technology and product range."</p>
+        <div class="quality-bullets">
+          <div class="quality-bullet">Consistency in product performance</div>
+          <div class="quality-bullet">Innovative processes to optimise the resources</div>
+          <div class="quality-bullet">Introduction of new product range</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="upcoming">
+  <div class="container">
+    <div class="section-label">Upcoming Products</div>
+    <h2>Expanding the Frontier</h2>
+    <div class="upcoming-grid">
+      <div class="upcoming-body fade-up">
+        <p>The extension of our product range begins with transmission solutions, while affording improved market penetration of composite insulators and fiber reinforced polymers.</p>
+        <p>Phoenix will launch a vast range of current and voltage transformers for metering, protection, and special application.</p>
+      </div>
+      <div class="upcoming-card fade-up">
+        <h3>Coming Soon</h3>
+        <ul>
+          <li>Current Transformers — Metering</li>
+          <li>Voltage Transformers — Protection</li>
+          <li>Special Application Transformers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="careers">
+  <div class="container">
+    <div class="section-label">Careers</div>
+    <h2>Grow With Us</h2>
+    <div class="careers-grid">
+      <div class="careers-body fade-up">
+        <p>Along with internal cooperation and powerful spirit of teamwork, Phoenix provides diverse opportunities to be the active part of changing trends in power infrastructure.</p>
+        <p>At Phoenix it's not just a job you get, but it is all about enjoying work and paving your career path.</p>
+        <p>It further opens doors to continual development, social benefits and an essential work-life balance, as well as the chance to grow with some of the influential people you will ever meet.</p>
+        <p>Our employees come together with a wide variety of engineering and operational skills and backgrounds to form talented teams.</p>
+      </div>
+      <div class="careers-cta fade-up">
+        <h3>Join the Team</h3>
+        <p>People who are creative, committed and passionate for their profession can send their bio to:</p>
+        <a href="mailto:jobs@phoenixelectrical.co.in" class="email-link">jobs@phoenixelectrical.co.in</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Contacts</div>
+    <h2>Get In Touch</h2>
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <h3>Phoenix Electrical Insulating Materials Co. Pvt. Ltd.</h3>
+        <div class="contact-block">
+          <div class="contact-label">Address</div>
+          <div class="contact-value">Survey No. 11, Annojiguda Village<br>Pocharam Gram Panchayat<br>Ghatkesar Mandal<br>Hyderabad – 501 301<br>(Rangareddy District)<br>Andhra Pradesh, India</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">+91 8415 228093</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Fax</div>
+          <div class="contact-value">+91 8415 228091</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Email</div>
+          <div class="contact-value"><a href="mailto:info@phoenixelectrical.co.in">info@phoenixelectrical.co.in</a></div>
+        </div>
+      </div>
+      <div class="contact-form fade-up">
+        <h3>Send an Enquiry</h3>
+        <div class="form-group">
+          <label>To</label>
+          <select>
+            <option value="">— Select —</option>
+            <option>General Enquiry</option>
+            <option>Marketing</option>
+            <option>Operations</option>
+            <option>Procurement</option>
+            <option>Technical</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>From</label>
+          <input type="text" placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label>Query</label>
+          <textarea placeholder="Enter your query..."></textarea>
+        </div>
+        <button class="btn-primary" type="button" style="width:100%; justify-content:center;">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-copy">Copyright © 2010 Phoenix Electrical. All Rights Reserved.</span>
+  <ul class="footer-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">Company</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#contact">Contacts</a></li>
+    <li><a href="mailto:info@phoenixelectrical.co.in">Login</a></li>
+  </ul>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links > li > a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
